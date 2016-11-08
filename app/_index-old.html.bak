@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+
+<body>
+  <h1>Angel Charman</h1>
+  <p>This is the real site to the app: Angel Charman. Going for a very minimalistic style here.</p>
+  <a href="PrivacyPolicy.html">Privacy Policy</a>
+  <a href="TermsOfServices.html">Terms of Services</a>
+</body>
+
+</html>
