@@ -48,8 +48,13 @@ gulp.task('images', function () {
     .pipe(cache(imagemin({
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'))
-})
+    .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('favicon', function () {
+  return gulp.src('app/*.ico')
+    .pipe(gulp.dest('dist/'));
+});
 
 gulp.task('useref', function () {
   return gulp.src('app/*.html')
@@ -79,8 +84,8 @@ gulp.task('clean:dist', function () {
 // Build Sequences
 // ---------------
 
-gulp.task('build', function (callback) {
-  runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'],
+gulp.task('default', function (callback) {
+  runSequence('clean:dist', ['sass', 'useref','favicon', 'images', 'fonts'],
     callback
   )
 });

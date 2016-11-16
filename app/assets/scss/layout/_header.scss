@@ -18,8 +18,6 @@
 	@include pixelimage-background('images/cloud-spalsh.png');
 	background-repeat: no-repeat;
 	background-position: center;
-	//background-image: url('images/overlay.png'), url('images/pattern-size1.svg');
-	//background-position: top left, center center;
 	background-attachment: fixed, fixed;
 	background-size: cover;
 	width: 100vw;
@@ -62,11 +60,6 @@
 	}
 	// Large.
 	@include breakpoint(large) {
-		//background-image: url('images/overlay.png'), url('images/pattern-size2.svg');
-		.skel-test {
-			//@include scale(2.1);
-			background: red;
-		}
 		.banner {
 			@include scale(2);
 		}
@@ -77,11 +70,6 @@
 		min-height: 0;
 		.content {
 			margin: (_size(element-margin) * -1) (_size(element-margin) * 2) 0 0;
-		}
-		.skel-test {
-			//@include scale(1);
-			background: orange;
-			//margin: (_size(element-margin) * -1) 0 0 0;
 		}
 		.banner {
 			@include scale(1.5);
@@ -95,9 +83,6 @@
 				width: 100%;
 				text-align: center;
 				margin: 0 0 _size(element-margin) 0;
-			}
-			.skel-test {
-				background: orangered;
 			}
 		}
 	}
@@ -127,22 +112,15 @@
 					font-size: 0.8em;
 				}
 			}
-			.skel-test {
-				background: green;
-			}
 			.banner {
 				@include scale(1.0);
+				background-position: 52% 50%;
 				height: 60vh;
 			}
 		}
 		// Portrait.
 		@include orientation(portrait) {
 			@include padding(3em, 1.5em);
-			.skel-test {
-				//font-size: 0.6em;
-				//max-width: 60vw;
-				background: lightgreen;
-			}
 			.banner {
 				@include scale(1.0);
 			}
@@ -152,6 +130,7 @@
 	@include breakpoint(xsmall) {
 		.banner {
 			@include scale(0.9);
+			background-position: 100% 50%;
 		}
 		// Landscape.
 		@include orientation(landscape) {
@@ -162,16 +141,10 @@
 			.actions {
 				font-size: 0.8em;
 			}
-			.skel-test {
-				background: hotpink;
-			}
 		}
 		// Portrait.
 		@include orientation(portrait) {
 			@include padding(2em, 1em);
-			.skel-test {
-				background: hotpink;
-			}
 		}
 	}
 	// Mobile.
@@ -198,10 +171,6 @@
 				.content {
 					@include vendor('transform', 'none');
 					opacity: 1;
-				}
-				.skel-test {
-					//@include vendor('transform', 'translateY(2em)');
-					background: saddlebrown;
 				}
 			}
 		}

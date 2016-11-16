@@ -16,14 +16,14 @@
 		margin: 0 0 _size(element-margin) 0;
 
 		.image {
-			width: 30%;
-			border-radius: 100%;
+			width: 100%;
+			//border-radius: 100%;
 			margin: 0 (_size(element-margin) * 1.5) 0 0;
 			display: block;
 
 			img {
 				display: block;
-				border-radius: 100%;
+				//border-radius: 100%;
 				width: 100%;
 			}
 		}
@@ -70,7 +70,7 @@
 
 						.image {
 							width: 100%;
-							max-width: 60%;
+							max-width: 80%;
 							margin: 0 0 _size(element-margin) 0 !important;
 						}
 
