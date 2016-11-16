@@ -63,6 +63,18 @@
 			}
 		}
 
+		&.banner {
+			@include pixelimage-background('images/header-banner.png');
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 100vw;
+			height: 30vh;
+			background-color: clear;
+			border-radius: 0;
+			display: block;
+			@include scale(2.5);
+		}
+
 		&.phone {
 			box-shadow: none;
 			border-radius: 0;
@@ -131,7 +143,8 @@
 		.image {
 			box-shadow: 0 0 0 4px _palette($p, bg), 0 0 0 5px _palette($p, border);
 
-			&.phone {
+			
+			&.phone, &.banner {
 				box-shadow: none;
 
 				.inner, &:before, &:after {

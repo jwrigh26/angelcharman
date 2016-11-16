@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 
 // Development Tasks
 // -----------------
@@ -22,7 +23,9 @@ gulp.task('browserSync', function () {
 
 gulp.task('sass', function () {
   return gulp.src('app/assets/scss/+(main|ie9|ie8).scss')
-    .pipe(sass()) // Using gulp -sass
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError)) // Using gulp -sass
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/assets/css'))
     .pipe(browserSync.reload({
       stream: true
@@ -77,14 +80,12 @@ gulp.task('clean:dist', function () {
 // ---------------
 
 gulp.task('build', function (callback) {
-  runSequence('clean:dist', 
-    ['sass', 'useref', 'images', 'fonts'],
+  runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'],
     callback
   )
 });
 
-gulp.task('start', function(callback){
-  runSequence(['sass', 'browserSync', 'watch']
-  )
+gulp.task('start', function (callback) {
+  runSequence(['sass', 'browserSync', 'watch'])
   callback
 })

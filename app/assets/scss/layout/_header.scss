@@ -1,7 +1,6 @@
 @import '../libs/vars';
 @import '../libs/functions';
 @import '../libs/mixins';
-
 ///
 /// Fractal by HTML5 UP
 /// html5up.net | @ajlkn
@@ -10,196 +9,201 @@
 
 /* Header */
 
-	#header {
-		@include color(accent1);
-		@include padding(4.5em, 0);
-		@include vendor('align-items', 'center');
-		@include vendor('display', 'flex');
-		@include vendor('justify-content', 'center');
-		background-image: url('images/overlay.png'), url('images/pattern-size1.svg');
-		background-position: top left, center center;
-		background-attachment: fixed, fixed;
-		background-size: auto, cover;
-		height: 100vh;
-		min-height: 35em;
-
-		h1 {
-			font-size: 3.25em;
-			font-weight: _font(weight-bold);
-			margin-bottom: _size(element-margin) * 0.25;
-		}
-
-		p {
-			font-size: 1.5em;
-			line-height: 1.35em;
-
-			br {
-				display: inline;
-			}
-		}
-
-		.content {
-			@include vendor('transition', ('opacity 0.5s ease', 'transform 1s ease'));
-			@include vendor('transform', 'translateX(0)');
-			opacity: 1;
-			text-align: right;
-			margin: (_size(element-margin) * -1.75) (_size(element-margin) * 2) 0 0;
-
-			> :last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		.image {
-			@include vendor('transition', ('opacity 1s ease', 'transform 1s ease'));
-			@include vendor('transform', 'translateY(0)');
-			opacity: 1;
-
-			img {
-				@include vendor('transition', 'opacity 0.75s ease');
-				@include vendor('transition-delay', '0.75s');
-				opacity: 1;
-			}
-		}
-
-		// Large.
-			@include breakpoint(large) {
-				background-image: url('images/overlay.png'), url('images/pattern-size2.svg');
-			}
-
-		// Medium.
-			@include breakpoint(medium) {
-				height: auto;
-				min-height: 0;
-
-				.content {
-					margin: (_size(element-margin) * -1) (_size(element-margin) * 2) 0 0;
-				}
-
-				// Portrait.
-					@include orientation(portrait) {
-						@include padding(6em, 3em);
-						@include vendor('flex-direction', 'column-reverse');
-
-						.content {
-							display: block;
-							width: 100%;
-							text-align: center;
-							margin: 0 0 _size(element-margin) 0;
-						}
-
-						.image {
-							overflow: hidden;
-						}
-					}
-
-			}
-
-		// Small.
-			@include breakpoint(small) {
-				background-image: url('images/overlay.png'), url('images/pattern-size3.svg');
-
-				h1 {
-					font-size: 2em;
-				}
-
-				p {
-					font-size: 1em;
-					line-height: inherit;
-				}
-
-				// Landscape.
-					@include orientation(landscape) {
-						@include padding(2em, 2em);
-
-						.content {
-							margin: 0 _size(element-margin) _size(element-margin) 0;
-						}
-
-						.image {
-							font-size: 0.8em;
-							width: 15em;
-							max-width: 20vw;
-
-							.inner, &:before, &:after {
-								font-size: 0.8em;
-							}
-						}
-					}
-
-				// Portrait.
-					@include orientation(portrait) {
-						@include padding(3em, 1.5em);
-
-						.image {
-							font-size: 0.6em;
-							max-width: 60vw;
-						}
-					}
-
-			}
-
-		// XSmall.
-			@include breakpoint(xsmall) {
-
-				// Landscape.
-					@include orientation(landscape) {
-						@include padding(2em, 1.5em);
-
-						.image {
-							font-size: 0.7em;
-						}
-
-						.actions {
-							font-size: 0.8em;
-						}
-					}
-
-				// Portrait.
-					@include orientation(portrait) {
-						@include padding(2em, 1em);
-					}
-
-			}
-
-		// Mobile.
-			body.is-mobile & {
-				background-attachment: scroll, scroll;
-			}
-
-		// Loading.
-			body.is-loading & {
-				.content {
-					@include vendor('transform', 'translateX(2em)');
-					opacity: 0;
-				}
-
-				.image {
-					@include vendor('transform', 'translateY(4em)');
-					opacity: 0;
-
-					img {
-						opacity: 0;
-					}
-				}
-
-				// Medium.
-					@include breakpoint(medium) {
-
-						// Portrait.
-							@include orientation(portrait) {
-								.content {
-									@include vendor('transform', 'none');
-									opacity: 1;
-								}
-
-								.image {
-									@include vendor('transform', 'translateY(2em)');
-								}
-							}
-
-					}
-
-			}
-
+#header {
+	//@include color(accent1);
+	@include padding(4.5em, 0);
+	@include vendor('align-items', 'center');
+	@include vendor('display', 'flex');
+	@include vendor('justify-content', 'center');
+	@include pixelimage-background('images/cloud-spalsh.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	//background-image: url('images/overlay.png'), url('images/pattern-size1.svg');
+	//background-position: top left, center center;
+	background-attachment: fixed, fixed;
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	min-height: 35em;
+	h1 {
+		font-size: 3.25em;
+		font-weight: _font(weight-bold);
+		margin-bottom: _size(element-margin) * 0.25;
 	}
+	p {
+		font-size: 1.5em;
+		line-height: 1.35em;
+		br {
+			display: inline;
+		}
+	}
+	.content {
+		@include vendor('transition', ('opacity 0.5s ease', 'transform 1s ease'));
+		@include vendor('transform', 'translateX(0)');
+		position: relative;
+		background-color: grey;
+		opacity: 1;
+		text-align: left;
+		margin: (_size(element-margin) * -1.75) (_size(element-margin) * 2) 0 0;
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+	.image {
+		@include vendor('transition', ('opacity 1s ease', 'transform 1s ease'));
+		margin: (_size(element-margin) * -1) 0 0 0;
+		//@include vendor('transform', 'translateY(0)');
+		opacity: 1;
+		img {
+			@include vendor('transition', 'opacity 0.75s ease');
+			@include vendor('transition-delay', '0.75s');
+			opacity: 1;
+		}
+	}
+	// Large.
+	@include breakpoint(large) {
+		//background-image: url('images/overlay.png'), url('images/pattern-size2.svg');
+		.skel-test {
+			//@include scale(2.1);
+			background: red;
+		}
+		.banner {
+			@include scale(2);
+		}
+	}
+	// Medium.
+	@include breakpoint(medium) {
+		height: auto;
+		min-height: 0;
+		.content {
+			margin: (_size(element-margin) * -1) (_size(element-margin) * 2) 0 0;
+		}
+		.skel-test {
+			//@include scale(1);
+			background: orange;
+			//margin: (_size(element-margin) * -1) 0 0 0;
+		}
+		.banner {
+			@include scale(1.5);
+		}
+		// Portrait.
+		@include orientation(portrait) {
+			@include padding(6em, 3em);
+			@include vendor('flex-direction', 'column-reverse');
+			.content {
+				display: block;
+				width: 100%;
+				text-align: center;
+				margin: 0 0 _size(element-margin) 0;
+			}
+			.skel-test {
+				background: orangered;
+			}
+		}
+	}
+	// Small.
+	@include breakpoint(small) {
+		//background-image: url('images/overlay.png'), url('images/pattern-size3.svg');
+		h1 {
+			font-size: 2em;
+		}
+		p {
+			font-size: 1em;
+			line-height: inherit;
+		}
+		// Landscape.
+		@include orientation(landscape) {
+			@include padding(2em, 2em);
+			.content {
+				//margin: 0 _size(element-margin) _size(element-margin) 0;
+			}
+			.image {
+				font-size: 0.8em;
+				//width: 15em;
+				//max-width: 20vw;
+				.inner,
+				&:before,
+				&:after {
+					font-size: 0.8em;
+				}
+			}
+			.skel-test {
+				background: green;
+			}
+			.banner {
+				@include scale(1.0);
+				height: 60vh;
+			}
+		}
+		// Portrait.
+		@include orientation(portrait) {
+			@include padding(3em, 1.5em);
+			.skel-test {
+				//font-size: 0.6em;
+				//max-width: 60vw;
+				background: lightgreen;
+			}
+			.banner {
+				@include scale(1.0);
+			}
+		}
+	}
+	// XSmall.
+	@include breakpoint(xsmall) {
+		.banner {
+			@include scale(0.9);
+		}
+		// Landscape.
+		@include orientation(landscape) {
+			@include padding(2em, 1.5em);
+			.image {
+				font-size: 0.7em;
+			}
+			.actions {
+				font-size: 0.8em;
+			}
+			.skel-test {
+				background: hotpink;
+			}
+		}
+		// Portrait.
+		@include orientation(portrait) {
+			@include padding(2em, 1em);
+			.skel-test {
+				background: hotpink;
+			}
+		}
+	}
+	// Mobile.
+	body.is-mobile & {
+		background-attachment: scroll, scroll;
+	}
+	// Loading.
+	body.is-loading & {
+		.content {
+			//@include vendor('transform', 'translateX(2em)');
+			opacity: 0;
+		}
+		.image {
+			//@include vendor('transform', 'translateY(4em)');
+			opacity: 0;
+			img {
+				opacity: 0;
+			}
+		}
+		// Medium.
+		@include breakpoint(medium) {
+			// Portrait.
+			@include orientation(portrait) {
+				.content {
+					@include vendor('transform', 'none');
+					opacity: 1;
+				}
+				.skel-test {
+					//@include vendor('transform', 'translateY(2em)');
+					background: saddlebrown;
+				}
+			}
+		}
+	}
+}
