@@ -15,7 +15,7 @@
 	@include vendor('align-items', 'center');
 	@include vendor('display', 'flex');
 	@include vendor('justify-content', 'center');
-	@include pixelimage-background('images/cloud-spalsh.png');
+	@include pixelimage-background('../../images/css/cloud-spalsh.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed, fixed;

@@ -53,7 +53,7 @@
 		}
 	}
 	&.banner {
-		@include pixelimage-background('images/header-banner.png');
+		@include pixelimage-background('../../images/css/header-banner.png');
 		background-repeat: no-repeat;
 		background-position: 52% 50%;
 		width: 100vw;
