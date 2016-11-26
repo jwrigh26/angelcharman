@@ -70,6 +70,18 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest('dist/assets/fonts'))
 })
 
+gulp.task('css-extras', function () {
+  return gulp.src(['app/assets/css/*.css', '!app/assets/css/main.css'])
+  .pipe(useref())
+  .pipe(gulpIf('*.css', cssnano()))
+  .pipe(gulp.dest('dist/assets/css'))
+})
+
+gulp.task('js-extras', function () {
+  return gulp.src('app/assets/js/ie/**')
+  .pipe(gulp.dest('dist/assets/js/ie'))
+})
+
 // Cleaning Tasks
 // --------------
 
@@ -85,7 +97,7 @@ gulp.task('clean:dist', function () {
 // ---------------
 
 gulp.task('default', function (callback) {
-  runSequence('clean:dist', ['sass', 'useref','favicon', 'images', 'fonts'],
+  runSequence('clean:dist', ['sass', 'useref','favicon', 'images', 'fonts', 'css-extras', 'js-extras'],
     callback
   )
 });
